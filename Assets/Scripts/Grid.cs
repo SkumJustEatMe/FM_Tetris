@@ -5,9 +5,9 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     [SerializeField] private Transform myCamera;
-    public GameObject myTile;
-    private int width = 10;
-    private int height = 10;
+    public GameObject squareTile;
+    private int width = 10; // You could also use Screen.width.
+    private int height = 10; // You could also use Screen.height.
     private Color color1 = new Color32(245, 245, 245, 245);
     private Color color2 = new Color32(255, 255, 255, 255);
 
@@ -15,12 +15,20 @@ public class Tile : MonoBehaviour
     {
         Debug.Log("Screen Width : " + Screen.width);
         Debug.Log("Screen Height : " + Screen.height);
+        myCamera.transform.position = new Vector3(width/2, height/2, -10);
 
-        for(int i = 0; i < width; i++)
+        initGrid();
+        
+    }
+
+    private void initGrid()
+    {
+        GameObject grid = new GameObject("GridParent");
+        for (int i = 0; i < width; i++)
         {
-            for(int j = 0; j < height; j++)
+            for (int j = 0; j < height; j++)
             {
-                GameObject gridTile = Instantiate(myTile, new Vector2(i + 0.5f, j + 0.5f), Quaternion.identity); // Instatiate GameObjects -> https://docs.unity3d.com/Manual/InstantiatingPrefabs.html
+                GameObject gridTile = Instantiate(squareTile, new Vector2(i + 0.5f, j + 0.5f), Quaternion.identity); // Instatiate GameObjects -> https://docs.unity3d.com/Manual/InstantiatingPrefabs.html
                 gridTile.name = "Tile " + i + "," + j;
                 if (j % 2 == 0 && i % 2 != 0 || i % 2 == 0 && j % 2 != 0)
                 {
@@ -30,11 +38,10 @@ public class Tile : MonoBehaviour
                 {
                     gridTile.GetComponent<Renderer>().material.color = color2;
                 }
-               
+
+                gridTile.transform.parent = grid.transform;
+
             }
         }
-
-        myCamera.transform.position = new Vector3(width/2, height/2, -10);
-        
     }
 }
