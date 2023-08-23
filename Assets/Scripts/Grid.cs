@@ -8,6 +8,8 @@ public class Tile : MonoBehaviour
     public GameObject myTile;
     private int width = 10;
     private int height = 10;
+    private Color color1 = new Color32(245, 245, 245, 245);
+    private Color color2 = new Color32(255, 255, 255, 255);
 
     void Awake()
     {
@@ -18,16 +20,16 @@ public class Tile : MonoBehaviour
         {
             for(int j = 0; j < height; j++)
             {
-                Instantiate(myTile, new Vector2(i + 0.5f, j + 0.5f), Quaternion.identity); // Instatiate GameObjects -> https://docs.unity3d.com/Manual/InstantiatingPrefabs.html
+                GameObject gridTile = Instantiate(myTile, new Vector2(i + 0.5f, j + 0.5f), Quaternion.identity); // Instatiate GameObjects -> https://docs.unity3d.com/Manual/InstantiatingPrefabs.html
                 myTile.name = "Tile " + i + "," + j;
-                if (j % 2 == 0)
+                if (j % 2 == 0 && i % 2 != 0 || i % 2 == 0 && j % 2 != 0)
                 {
-                    myTile.GetComponent<Renderer>().sharedMaterial.color = Color.black;
+                    gridTile.GetComponent<Renderer>().material.color = color1;
                     Debug.Log("black");
                 }
                 else
                 {
-                    myTile.GetComponent<Renderer>().sharedMaterial.color = Color.gray;
+                    gridTile.GetComponent<Renderer>().material.color = color2;
                     Debug.Log("grey");
                 }
                
