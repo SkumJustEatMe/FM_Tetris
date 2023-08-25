@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -215,6 +215,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &553040624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 553040625}
+  m_Layer: 0
+  m_Name: Tetraminos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &553040625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553040624}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6872507, y: 3.5650501, z: -0.15288801}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8068568144024644120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,6 +258,10 @@ PrefabInstance:
       propertyPath: myCamera
       value: 
       objectReference: {fileID: 519420032}
+    - target: {fileID: 492742823386710776, guid: 9a7a665c25bc14acc989e153d575eaa0, type: 3}
+      propertyPath: squareTile
+      value: 
+      objectReference: {fileID: 7063653231145149782, guid: d982766c1136a45aba963a198180924f, type: 3}
     - target: {fileID: 675939464748552066, guid: 9a7a665c25bc14acc989e153d575eaa0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -282,3 +317,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 8068568144024644120}
+  - {fileID: 553040625}

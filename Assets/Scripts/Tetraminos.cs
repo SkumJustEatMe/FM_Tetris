@@ -4,22 +4,15 @@ using UnityEngine;
 
 public class Tetraminos : MonoBehaviour
 {
-    public GameObject squareTile;
+    [SerializeField] private GameObject[] tetraminos;
+
 
     void Start()
     {
-        Ltetramino();
+        while (true)
+        {
+            Instantiate(tetraminos[Random.Range(0, tetraminos.Length)], new Vector3(2 + 0.5f, 2 + 0.5f, 1), Quaternion.identity); // random range between x and y -> https://docs.unity3d.com/ScriptReference/Random.Range.html
+        }
     }
 
-    void Ltetramino()
-    {
-        GameObject L1 = Instantiate(squareTile, new Vector2(-1 + 0.5f, 0 + 0.5f), Quaternion.identity);
-        //L1.transform.position = new Vector3(1 + 0.5f, -1 + 0.5f, -2);
-        L1.GetComponent<Renderer>().material.color = Color.black;
-        L1.name = "L Tile";
-        //GameObject L1 = Instantiate(SquareTile, new Vector2(1, 1), Quaternion.identity);
-        //GameObject L2 = Instantiate(SquareTile, new Vector2(2, 1), Quaternion.identity);
-        //GameObject L3 = Instantiate(SquareTile, new Vector2(3, 1), Quaternion.identity);
-        //GameObject L4 = Instantiate(SquareTile, new Vector2(1, 2), Quaternion.identity);
-    }
 }
