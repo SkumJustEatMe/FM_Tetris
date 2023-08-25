@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9158481922155214924}
+  - component: {fileID: -9159024648925958798}
   m_Layer: 0
   m_Name: Z Tetromino
   m_TagString: Untagged
@@ -35,6 +36,18 @@ Transform:
   - {fileID: 5786116106969975926}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-9159024648925958798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324564341863985372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1042d9009952d4a1d80fc7f6d7b4f258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &649508947501536646
 GameObject:
   m_ObjectHideFlags: 0
