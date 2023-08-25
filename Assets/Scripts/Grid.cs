@@ -15,11 +15,10 @@ public class Tile : MonoBehaviour
 
     void Awake()
     {
-        Camera.main.orthographicSize = rows/2;
-
         Debug.Log("Screen Columms : " + Screen.width);
         Debug.Log("Screen Rows : " + Screen.height);
         myCamera.transform.position = new Vector3(columms/2, rows/2, -10);
+        Camera.main.orthographicSize = rows / 2;
 
         initGrid();
         
@@ -35,6 +34,7 @@ public class Tile : MonoBehaviour
             for (int j = 0; j < rows; j++)
             {
                 GameObject gridTile = Instantiate(squareTile, new Vector2(i + 0.5f, j + 0.5f), Quaternion.identity); // Instatiate GameObjects -> https://docs.unity3d.com/Manual/InstantiatingPrefabs.html
+
                 gridTile.name = "Tile " + i + "," + j;
                 if (j % 2 == 0 && i % 2 != 0 || i % 2 == 0 && j % 2 != 0)
                 {
@@ -49,5 +49,28 @@ public class Tile : MonoBehaviour
 
             }
         }
+
+        initEdges(grid);
+
+        // Tryed with the EdgeCollider instead of box, i might move back and thats why im saving it. Just coudnt figurer out how to set the points right
+        //grid.AddComponent<EdgeCollider2D>();
+        //grid.GetComponent<EdgeCollider2D>().adjacentStartPoint = new Vector2(10, 20);
+        //grid.GetComponent<EdgeCollider2D>().offset = new Vector2(columms/2, -2);
+        //grid.GetComponent<EdgeCollider2D>().adjacentEndPoint = new Vector2(0, 20);
+    }
+
+
+    private void initEdges(GameObject grid)
+    {
+        //Buttom part of the collider
+        BoxCollider2D buttom = grid.AddComponent<BoxCollider2D>();
+        buttom.GetComponent<BoxCollider2D>().size = new Vector2(columms, 0.1f);
+        buttom.GetComponent<BoxCollider2D>().offset = new Vector2(columms / 2, -0.1f);
+
+        //Left side of the collider
+        //BoxCollider2D left = grid.AddComponent<BoxCollider2D>();
+        //left.GetComponent<BoxCollider2D>().size = new Vector2(0.1f, rows);
+        //left.GetComponent<BoxCollider2D>().offset = new Vector2(-0.1f, columms / 2);
+
     }
 }

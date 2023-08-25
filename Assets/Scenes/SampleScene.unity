@@ -224,6 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 553040625}
+  - component: {fileID: 553040626}
   m_Layer: 0
   m_Name: Tetraminos
   m_TagString: Untagged
@@ -246,6 +247,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &553040626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553040624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5403ff528cd4371ad7222e1eb9fab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tetraminos:
+  - {fileID: 632740943187836556, guid: 5e71b7387a2524f96a832d26619c7110, type: 3}
+  - {fileID: 3309565329212964784, guid: 83c7ef394158347dc9c0f926edf76ef5, type: 3}
+  - {fileID: 1426037688706854750, guid: f71a02d8259b64a5b8f171a4b6f7d396, type: 3}
+  - {fileID: 2479171127741619881, guid: c1c2539fe5e74406eacf02f4f2aed79b, type: 3}
+  - {fileID: 6305090262150591878, guid: a7032f4b16d194a9a811828d1ff11dc4, type: 3}
+  - {fileID: 3269802123296176006, guid: 10948445ffebe432eb57e6e25e334a57, type: 3}
+  - {fileID: 324564341863985372, guid: d26718be3fe8d40ce9bf8cfbf1c4ef7e, type: 3}
 --- !u!1001 &8068568144024644120
 PrefabInstance:
   m_ObjectHideFlags: 0
