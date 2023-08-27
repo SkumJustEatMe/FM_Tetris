@@ -9,6 +9,8 @@ public class Tile : MonoBehaviour
     private int columms = 10; // You could also use Screen.width.
     private int rows = 20; // You could also use Screen.height.
 
+    private GameObject[,] grid;
+
     private Color color1 = new Color32(245, 245, 245, 245);
     private Color color2 = new Color32(255, 255, 255, 255);
 
@@ -26,8 +28,7 @@ public class Tile : MonoBehaviour
 
     private void initGrid()
     {
-     
-        GameObject grid = new GameObject("GridParent");
+        grid = new GameObject[columms, rows];
 
         for (int i = 0; i < columms; i++)
         {
@@ -45,32 +46,31 @@ public class Tile : MonoBehaviour
                     gridTile.GetComponent<Renderer>().material.color = color2;
                 }
 
-                gridTile.transform.parent = grid.transform;
+                gridTile.transform.parent = this.transform;
+                grid[i, j] = gridTile;
+
+                // For now we will add the colliders like this. But we will probably refactor this. Its bad code :)
+                if (j == 0 || i == 9)
+                {
+                    gridTile.AddComponent<BoxCollider2D>().offset = new Vector2(0, -1);
+                }
+                else if(i == 9)
+                {
+                    gridTile.AddComponent<BoxCollider2D>().offset = new Vector2(1, 0);
+                }
+                else if(i == 0)
+                {
+                    gridTile.AddComponent<BoxCollider2D>().offset = new Vector2(-1, 0);
+                }
 
             }
         }
 
-        initEdges(grid);
-
-        // Tryed with the EdgeCollider instead of box, i might move back and thats why im saving it. Just coudnt figurer out how to set the points right
-        //grid.AddComponent<EdgeCollider2D>();
-        //grid.GetComponent<EdgeCollider2D>().adjacentStartPoint = new Vector2(10, 20);
-        //grid.GetComponent<EdgeCollider2D>().offset = new Vector2(columms/2, -2);
-        //grid.GetComponent<EdgeCollider2D>().adjacentEndPoint = new Vector2(0, 20);
     }
 
 
-    private void initEdges(GameObject grid)
+    private void addCollider()
     {
-        //Buttom part of the collider
-        BoxCollider2D buttom = grid.AddComponent<BoxCollider2D>();
-        buttom.GetComponent<BoxCollider2D>().size = new Vector2(columms, 0.1f);
-        buttom.GetComponent<BoxCollider2D>().offset = new Vector2(columms / 2, -0.1f);
-
-        //Left side of the collider
-        //BoxCollider2D left = grid.AddComponent<BoxCollider2D>();
-        //left.GetComponent<BoxCollider2D>().size = new Vector2(0.1f, rows);
-        //left.GetComponent<BoxCollider2D>().offset = new Vector2(-0.1f, columms / 2);
 
     }
 }
