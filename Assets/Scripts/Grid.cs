@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : MonoBehaviour
+public class CreateGrid : MonoBehaviour
 {
     [SerializeField] private Transform myCamera;
     public GameObject squareTile;
-    private int columms = 10; // You could also use Screen.width.
-    private int rows = 20; // You could also use Screen.height.
+    private int columms = 10;
+    private int rows = 20;
 
-    private GameObject[,] grid;
+    public GameObject[,] grid;
 
     private Color color1 = new Color32(245, 245, 245, 245);
     private Color color2 = new Color32(255, 255, 255, 255);
@@ -17,8 +17,6 @@ public class Tile : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("Screen Columms : " + Screen.width);
-        Debug.Log("Screen Rows : " + Screen.height);
         myCamera.transform.position = new Vector3(columms/2, rows/2, -10);
         Camera.main.orthographicSize = rows / 2;
 
@@ -29,6 +27,9 @@ public class Tile : MonoBehaviour
     private void initGrid()
     {
         grid = new GameObject[columms, rows];
+        Vector2[] points = { new Vector2(10f, 0f), new Vector2(0f, 0f) }; // new Vector2(10f, 20f), new Vector2(0f, 20f)
+        //this.gameObject.AddComponent<EdgeCollider2D>().points = points;
+
 
         for (int i = 0; i < columms; i++)
         {
@@ -47,30 +48,9 @@ public class Tile : MonoBehaviour
                 }
 
                 gridTile.transform.parent = this.transform;
-                grid[i, j] = gridTile;
-
-                // For now we will add the colliders like this. But we will probably refactor this. Its bad code :)
-                if (j == 0 || i == 9)
-                {
-                    gridTile.AddComponent<BoxCollider2D>().offset = new Vector2(0, -1);
-                }
-                else if(i == 9)
-                {
-                    gridTile.AddComponent<BoxCollider2D>().offset = new Vector2(1, 0);
-                }
-                else if(i == 0)
-                {
-                    gridTile.AddComponent<BoxCollider2D>().offset = new Vector2(-1, 0);
-                }
-
+                  
             }
         }
-
-    }
-
-
-    private void addCollider()
-    {
 
     }
 }
