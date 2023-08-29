@@ -26,11 +26,6 @@ public class CreateGrid : MonoBehaviour
 
     private void initGrid()
     {
-        //grid = new GameObject[columms, rows];
-        //Vector2[] points = { new Vector2(10f, 0f), new Vector2(0f, 0f) }; // new Vector2(10f, 20f), new Vector2(0f, 20f)
-        //this.gameObject.AddComponent<EdgeCollider2D>().points = points;
-
-
         for (int i = 0; i < columms; i++)
         {
             for (int j = 0; j < rows; j++)
