@@ -267,6 +267,7 @@ MonoBehaviour:
   - {fileID: 6305090262150591878, guid: a7032f4b16d194a9a811828d1ff11dc4, type: 3}
   - {fileID: 3269802123296176006, guid: 10948445ffebe432eb57e6e25e334a57, type: 3}
   - {fileID: 324564341863985372, guid: d26718be3fe8d40ce9bf8cfbf1c4ef7e, type: 3}
+  currentTetramino: {fileID: 0}
 --- !u!1001 &8068568144024644120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,10 +280,6 @@ PrefabInstance:
       propertyPath: myCamera
       value: 
       objectReference: {fileID: 519420032}
-    - target: {fileID: 492742823386710776, guid: 9a7a665c25bc14acc989e153d575eaa0, type: 3}
-      propertyPath: squareTile
-      value: 
-      objectReference: {fileID: 7063653231145149782, guid: d982766c1136a45aba963a198180924f, type: 3}
     - target: {fileID: 675939464748552066, guid: 9a7a665c25bc14acc989e153d575eaa0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

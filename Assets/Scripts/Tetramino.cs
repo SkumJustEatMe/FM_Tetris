@@ -8,7 +8,7 @@ public class Tetramino : MonoBehaviour
 
     void Start()
     {
-        this.gameObject.AddComponent<Rigidbody2D>().gravityScale = 0.5f;
+        this.gameObject.AddComponent<Rigidbody2D>().gravityScale = 0f;
         this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         foreach (Transform child in this.transform)
         {
